@@ -7,7 +7,6 @@ use std::{
 use crate::thread_pool_errors::{BoxResult, PoolCreationError, WorkerCreationError};
 
 pub struct ThreadPool {
-    //TODO: write unit tests for threadpool
     //TODO: write benchmark tests for threadpool
     workers: Vec<Worker>,
     sender: Option<mpsc::Sender<Job>>,
