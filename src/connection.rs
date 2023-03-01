@@ -9,7 +9,6 @@ use std::{
 use crate::connection_errors::{BoxResult, EmptyRequestError, ResponseResult};
 
 pub fn handle_connections(mut stream: TcpStream) -> BoxResult<()> {
-
     let buf_reader = BufReader::new(&mut stream);
     let response = get_response(buf_reader)?;
     stream.write_all(response.as_bytes())?;

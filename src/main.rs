@@ -5,7 +5,7 @@ fn main() {
     let port = "127.0.0.1:7878";
     let listener = TcpListener::bind(port).unwrap();
     let mut pool = ThreadPool::build(4).unwrap();
-    println!("Server running on port: {}\n", port);
+    println!("Server running on port: {port}\n");
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();

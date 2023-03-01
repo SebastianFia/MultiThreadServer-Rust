@@ -156,10 +156,10 @@ mod tests {
     ) {
         for i in 0..pool.size() {
             let receiver = Arc::clone(&receivers[i]);
-            let sender = Arc::clone(&senders[ i + 1]);
+            let sender = Arc::clone(&senders[i + 1]);
             pool.execute(move || {
                 let received = receiver.lock().unwrap().recv().unwrap();
-                sender.lock().unwrap().send(received + 1).unwrap(); 
+                sender.lock().unwrap().send(received + 1).unwrap();
                 Ok(())
             })
             .unwrap();
