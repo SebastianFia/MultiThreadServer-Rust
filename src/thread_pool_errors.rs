@@ -7,6 +7,17 @@ use std::{
 pub type BoxResult<T> = Result<T, Box<dyn Error>>;
 
 #[derive(Debug)]
+pub struct PoolCreationError;
+
+impl fmt::Display for PoolCreationError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "error creating thread pool")
+    }
+}
+
+impl Error for PoolCreationError {}
+
+#[derive(Debug)]
 pub struct WorkerCreationError {
     details: String,
 }

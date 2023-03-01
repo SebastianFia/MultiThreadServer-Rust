@@ -65,3 +65,9 @@ impl Display for EmptyRequestError {
 }
 
 impl Error for EmptyRequestError {}
+
+impl Default for EmptyRequestError {
+    fn default() -> Self {
+        Self::new()
+    }
+}
